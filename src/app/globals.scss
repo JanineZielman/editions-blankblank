@@ -1,10 +1,11 @@
 @font-face {
   font-family: monument;
-  src: url('./ABCMonumentGrotesk-Regular.otf');
+  src: url('./ABCMonumentGrotesk-Medium.otf');
 }
 
 *{
   box-sizing: border-box;
+  user-select: none;
 }
 
 body{
@@ -26,6 +27,14 @@ a{
   color: inherit;
   text-decoration: none;
   font-size: 24px;
+}
+
+.cursor-pointer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .home img{
@@ -55,10 +64,18 @@ a{
 
 @media only screen and (max-width: 600px) {
   h1{
-    font-size: 42px;
+    font-size: 36px;
+  }
+
+  a{
+    font-size: 14px;
+  }
+
+  .home img{
+    top: 47svh;
   }
 
   .home{
-    height: 90vh;
+    height: 94svh;
   }
 }

@@ -69,6 +69,21 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+/**
+ * Item in *Page → Images*
+ */
+export interface PageDocumentDataImagesItem {
+  /**
+   * Image field in *Page → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
 type PageDocumentDataSlicesSlice = RichTextSlice;
 
 /**
@@ -96,6 +111,17 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Images field in *Page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<Simplify<PageDocumentDataImagesItem>>;
 
   /**
    * Footer field in *Page*
@@ -233,6 +259,7 @@ declare module "@prismicio/client" {
     export type {
       PageDocument,
       PageDocumentData,
+      PageDocumentDataImagesItem,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
       RichTextSlice,

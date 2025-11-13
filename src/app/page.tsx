@@ -1,21 +1,20 @@
 import { type Metadata } from "next";
-
 import { asText } from "@prismicio/client";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import { PrismicNextImage } from "@prismicio/next";
+import ImageClickShow from "@/components/ImageClickShow"; // <-- import the client component
 
 export default async function Home() {
   const client = createClient();
   const home = await client.getByUID("page", "home");
 
-  // <SliceZone> renders the page's slices.
   return (
     <div className="home">
-      <PrismicNextImage field={home.data.image} />
+      <ImageClickShow images={home.data.images} />
+
       <SliceZone slices={home.data.slices} components={components} />
+
       <div className="footer">
         <PrismicRichText field={home.data.footer} />
       </div>
