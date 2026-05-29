@@ -3,12 +3,12 @@
   src: url('./ABCMonumentGrotesk-Medium.otf');
 }
 
-*{
+* {
   box-sizing: border-box;
   user-select: none;
 }
 
-body{
+body {
   background-color: black;
   color: white;
   font-family: monument, sans-serif;
@@ -16,20 +16,25 @@ body{
   overflow: hidden;
 }
 
-h1{
+h1 {
   font-size: 60px;
   font-weight: 300;
   line-height: 1;
   margin: 0;
 }
 
-a{
+a {
   color: inherit;
   text-decoration: none;
-  font-size: 24px;
+  font-size: inherit;
 }
 
-.cursor-pointer{
+h1 a {
+  text-decoration: underline;
+}
+
+
+.cursor-pointer {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +42,7 @@ a{
   height: 100vh;
 }
 
-.home img{
+.home .cursor-pointer img {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -49,7 +54,7 @@ a{
   cursor: pointer;
 }
 
-.home{
+.home {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -57,26 +62,46 @@ a{
   padding: 14px 14px 24px 14px;
 }
 
-.footer{
+.footer {
   position: fixed;
   bottom: 0;
   right: 14px;
 }
 
+.home .icon {
+  position: absolute;
+  right: 14px;
+  left: auto;
+  top: 14px;
+  width: 20vh;
+  height: 20vh;
+  max-width: 18vw;
+  z-index: 9;
+}
+
+.home .icon img {
+  width: 100%;
+  height: auto;
+}
+
 @media only screen and (max-width: 1100px) {
-  h1{
+  h1 {
     font-size: 36px;
   }
 
-  a{
+  a {
     font-size: 14px;
   }
 
-  .home img{
+  h1 a {
+    font-size: 36px;
+  }
+
+  .home .cursor-pointer img {
     top: 47svh;
   }
 
-  .home{
+  .home {
     height: 94svh;
   }
 }

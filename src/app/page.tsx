@@ -3,7 +3,8 @@ import { asText } from "@prismicio/client";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import ImageClickShow from "@/components/ImageClickShow"; // <-- import the client component
+import ImageClickShow from "@/components/ImageClickShow";
+import { PrismicNextImage } from "@prismicio/next";
 
 export default async function Home() {
   const client = createClient();
@@ -11,6 +12,9 @@ export default async function Home() {
 
   return (
     <div className="home">
+      <div className="icon">
+        <PrismicNextImage field={home.data.image} />
+      </div>
       <ImageClickShow images={home.data.images} />
 
       <SliceZone slices={home.data.slices} components={components} />
